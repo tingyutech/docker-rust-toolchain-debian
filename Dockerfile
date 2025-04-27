@@ -14,6 +14,7 @@ RUN apt-get update && apt-get install -y \
     git \
     clang \
     lld \
+    protobuf-compiler \
     && rm -rf /var/lib/apt/lists/*
 
 # 安装Android NDK
