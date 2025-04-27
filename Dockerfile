@@ -32,6 +32,7 @@ RUN mkdir -p ${ANDROID_NDK_HOME} \
 
 # 配置 Rust 工具链
 RUN rustup target add aarch64-linux-android armv7-linux-androideabi x86_64-linux-android
+RUN cargo install cargo-ndk
 
 # 创建 .cargo/config.toml 文件
 RUN mkdir -p /root/.cargo
