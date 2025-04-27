@@ -34,11 +34,4 @@ RUN mkdir -p ${ANDROID_NDK_HOME} \
 RUN rustup target add aarch64-linux-android armv7-linux-androideabi x86_64-linux-android
 RUN cargo install cargo-ndk
 
-# 创建 .cargo/config.toml 文件
-RUN mkdir -p /root/.cargo
-COPY docker/cargo-config.toml /root/.cargo/config.toml
-
-# 设置环境变量
-ENV PATH=$PATH:${ANDROID_NDK_HOME}/toolchains/llvm/prebuilt/linux-x86_64/bin
-
 CMD ["bash"]
