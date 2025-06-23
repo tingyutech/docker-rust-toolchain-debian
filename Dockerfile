@@ -4,7 +4,7 @@ FROM rust:1.86-slim-bookworm
 WORKDIR /build
 
 # 安装必要的工具
-RUN apt update && apt install -y \
+RUN apt-get update && apt-get install -y \
     wget \
     unzip \
     pkg-config \
@@ -17,7 +17,7 @@ RUN apt update && apt install -y \
     protobuf-compiler \
     ninja-build \
 
-    && apt clean \
+    && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
 # 安装Android NDK
@@ -35,7 +35,6 @@ RUN mkdir -p ${ANDROID_NDK_HOME} \
 
 # 配置 Rust 工具链
 RUN rustup target add x86_64-unknown-linux-gnu aarch64-linux-android armv7-linux-androideabi x86_64-linux-android wasm32-unknown-unknown
-RUN cargo install cargo-ndk wasm-pack cargo-cache
-RUN cargo cache -a --dry-run
+RUN cargo install cargo-ndk wasm-bindgen-cli wasm-pack cargo-cache && cargo cache --remove-dir all
 
 CMD ["bash"]
