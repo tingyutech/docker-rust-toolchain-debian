@@ -23,7 +23,7 @@ RUN apt-get update && apt-get install -y \
     libpipewire-0.3-dev \
     libwayland-dev \
     libegl-dev \
-    ffmpeg
+    ffmpeg \
 
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
