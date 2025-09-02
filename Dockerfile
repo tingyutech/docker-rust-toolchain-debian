@@ -16,6 +16,14 @@ RUN apt-get update && apt-get install -y \
     lld \
     protobuf-compiler \
     ninja-build \
+    software-properties-common \
+    libxcb1-dev \
+    libxrandr-dev \
+    libdbus-1-dev \
+    libpipewire-0.3-dev \
+    libwayland-dev \
+    libegl-dev \
+    ffmpeg
 
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
