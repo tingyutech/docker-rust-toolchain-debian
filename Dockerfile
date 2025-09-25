@@ -1,4 +1,4 @@
-FROM rust:1.86-slim-bookworm
+FROM rust:1.90-slim-trixie
 
 # 设置工作目录
 WORKDIR /build
