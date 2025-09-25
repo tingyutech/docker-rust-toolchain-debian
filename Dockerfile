@@ -16,18 +16,19 @@ RUN apt-get update && apt-get install -y \
     lld \
     protobuf-compiler \
     ninja-build \
-    libgbm1 \
+    libgbm-dev \
     libxcb1 \
-    libxdo3 \
-    libwayland-client0 \
-    libavcodec61 \
-    libavdevice61 \
-    libavfilter10 \
-    libavformat61 \
-    libavutil59 \
-    libswresample5 \
-    libswscale8 \
-    libpipewire-0.3-0 \
+    libxdo-dev \
+    libwayland-dev \
+    libpipewire-0.3-dev \
+    libegl-dev \
+    libavcodec-dev \
+    libavdevice-dev \
+    libavfilter-dev \
+    libavformat-dev \
+    libavutil-dev \
+    libswresample-dev \
+    libswscale-dev \
     libdbus-1-3 \
 
     && apt-get clean \
@@ -47,7 +48,7 @@ RUN mkdir -p ${ANDROID_NDK_HOME} \
     && rm -rf android-ndk-${NDK_VERSION} android-ndk-${NDK_VERSION}-linux.zip
 
 # 配置 Rust 工具链
-RUN rustup target add x86_64-unknown-linux-gnu aarch64-linux-android armv7-linux-androideabi x86_64-linux-android wasm32-unknown-unknown
+RUN rustup target add x86_64-unknown-linux-gnu aarch64-linux-android armv7-linux-androideabi wasm32-unknown-unknown
 RUN cargo install cargo-ndk wasm-bindgen-cli wasm-pack cargo-cache && cargo cache --remove-dir all
 
 CMD ["bash"]
