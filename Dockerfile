@@ -16,14 +16,19 @@ RUN apt-get update && apt-get install -y \
     lld \
     protobuf-compiler \
     ninja-build \
-    software-properties-common \
-    libxcb1-dev \
-    libxrandr-dev \
-    libdbus-1-dev \
-    libpipewire-0.3-dev \
-    libwayland-dev \
-    libegl-dev \
-    ffmpeg \
+    libgbm1 \
+    libxcb1 \
+    libxdo3 \
+    libwayland-client0 \
+    libavcodec61 \
+    libavdevice61 \
+    libavfilter10 \
+    libavformat61 \
+    libavutil59 \
+    libswresample5 \
+    libswscale8 \
+    libpipewire-0.3-0 \
+    libdbus-1-3 \
 
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
